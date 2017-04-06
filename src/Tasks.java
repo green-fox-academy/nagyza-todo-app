@@ -3,22 +3,30 @@ public class Tasks {
   private String isDone;
   private String text;
 
-  public Tasks(String text) {
+  Tasks(String text) {
     this.isDone = " ";
     this.text = text;
   }
 
-  public Tasks(String isDone, String text) {
+  Tasks(String isDone, String text) {
     this.isDone = isDone;
     this.text = text;
   }
 
-  public void changeDone() {
+  void changeDone() {
     if (this.isDone.equals(" ")) {
       this.isDone = "x";
     } else {
       this.isDone = " ";
     }
+  }
+
+  void changeToBeDone() {
+    this.isDone = "x";
+  }
+
+  void changeToBeUndone() {
+    this.isDone = " ";
   }
 
   @Override
