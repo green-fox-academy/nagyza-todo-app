@@ -41,6 +41,17 @@ public class Main {
         page.removeTask(Integer.parseInt(args[1]));
         writeFile(page.toFile());
       }
+    } else if (args[0].equals("-c")) {
+      if (args.length < 2) {
+        System.out.println("Unable to remove: no index provided");
+      } else if (!isInteger(args[1])) {
+        System.out.println("Unable to remove: index is not a number");
+      } else if (tasksList.size() < Integer.parseInt(args[1])) {
+        System.out.println("Unable to remove: index is out of bound");
+      } else {
+        page.checkTask(Integer.parseInt(args[1]));
+        writeFile(page.toFile());
+      }
     }
   }
 
