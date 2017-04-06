@@ -8,8 +8,13 @@ public class Tasks {
     this.text = text;
   }
 
+  public Tasks(String isDone, String text) {
+    this.isDone = isDone;
+    this.text = text;
+  }
+
   public void changeDone() {
-    if (this.isDone == " ") {
+    if (this.isDone.equals(" ")) {
       this.isDone = "x";
     } else {
       this.isDone = " ";
