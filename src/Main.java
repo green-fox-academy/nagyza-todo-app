@@ -24,6 +24,8 @@ public class Main {
       System.out.println("No todos for today! :)");
     } else if (args[0].equals("-l")) {
       System.out.println(page.toString());
+    } else if (args[0].equals("-a") && args.length < 2) {
+      System.out.println("Unable to add: no task provided");
     }
   }
 
