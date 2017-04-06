@@ -15,6 +15,7 @@ public class Main {
     page = new Page();
     List<String> readTasks = readFile(fileKeepTodos);
     fillPage(readTasks);
+    List<Tasks> tasksList = page.getTasksList();
 
     if (args.length == 0) {
       for (String line : readFile(fileUsage)) {
@@ -29,6 +30,17 @@ public class Main {
     } else if (args[0].equals("-a")) {
       page.addNewTask(args[1]);
       writeFile(page.toFile());
+    } else if (args[0].equals("-r")) {
+      if (args.length < 2) {
+        System.out.println("Unable to remove: no index provided");
+      } else if (!isInteger(args[1])) {
+        System.out.println("Unable to remove: index is not a number");
+      } else if (tasksList.size() < Integer.parseInt(args[1])) {
+        System.out.println("Unable to remove: index is out of bound");
+      } else {
+        page.removeTask(Integer.parseInt(args[1]));
+        writeFile(page.toFile());
+      }
     }
   }
 
@@ -56,6 +68,14 @@ public class Main {
       String done = lineElements[0];
       String text = lineElements[1];
       page.addTask(new Tasks(done, text));
+    }
+  }
+  private static boolean isInteger(String input) {
+    try {
+      Integer.parseInt(input);
+      return true;
+    } catch( Exception e ) {
+      return false;
     }
   }
 }
