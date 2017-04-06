@@ -25,7 +25,7 @@ public class Page {
   }
 
   public void removeTask(int index) {
-    this.tasks.remove(index);
+    this.tasks.remove(index - 1);
   }
 
   ArrayList<String> toFile() {
