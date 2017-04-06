@@ -9,12 +9,21 @@ public class Main {
 
   private static final Path fileKeepTodos = Paths.get("todos.csv");
   private static final Path fileUsage = Paths.get("print-usage.csv");
+  private static Page page;
 
   public static void main(String[] args) {
+    page = new Page();
+    List<String> readTasks = readFile(fileKeepTodos);
+    fillPage(readTasks);
+
     if (args.length == 0) {
       for (String line : readFile(fileUsage)) {
         System.out.println(line);
       }
+    } else if (args[0].equals("-l") && readTasks.size() == 0) {
+      System.out.println("No todos for today! :)");
+    } else if (args[0].equals("-l")) {
+      System.out.println(page.toString());
     }
   }
 
@@ -26,7 +35,7 @@ public class Main {
     }
   }
 
-  public static List<String> readFile(Path filePath) {
+  private static List<String> readFile(Path filePath) {
     List<String> fileLines = new ArrayList<>();
     try {
       fileLines = Files.readAllLines(filePath);
@@ -36,4 +45,12 @@ public class Main {
     return fileLines;
   }
 
+  private static void fillPage(List<String> readTasks) {
+    for (String line : readTasks) {
+      String[] lineElements = line.split(";");
+      String done = lineElements[0];
+      String text = lineElements[1];
+      page.addTask(new Tasks(done, text));
+    }
+  }
 }
