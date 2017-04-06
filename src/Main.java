@@ -52,6 +52,11 @@ public class Main {
         page.checkTask(Integer.parseInt(args[1]));
         writeFile(page.toFile());
       }
+    } else if (args.length > 0) {
+      System.out.println("Unsupported argument");
+      for (String lines : readFile(fileUsage)) {
+        System.out.println(lines);
+      }
     }
   }
 
