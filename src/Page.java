@@ -20,6 +20,10 @@ public class Page {
     this.tasks.add(new Tasks(newTask));
   }
 
+  public List<Tasks> getTasksList() {
+    return tasks;
+  }
+
   public ArrayList<String> toFile() {
     ArrayList<String> result = new ArrayList<>();
     for (Tasks task : this.tasks) {
