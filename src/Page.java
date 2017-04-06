@@ -24,8 +24,12 @@ public class Page {
     return this.tasks;
   }
 
-  public void removeTask(int index) {
+  void removeTask(int index) {
     this.tasks.remove(index - 1);
+  }
+
+  void checkTask(int index) {
+    this.tasks.get(index - 1).changeToBeDone();
   }
 
   ArrayList<String> toFile() {
