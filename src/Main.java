@@ -26,10 +26,13 @@ public class Main {
       System.out.println(page.toString());
     } else if (args[0].equals("-a") && args.length < 2) {
       System.out.println("Unable to add: no task provided");
+    } else if (args[0].equals("-a")) {
+      page.addNewTask(args[1]);
+      writeFile(page.toFile());
     }
   }
 
-  public void writeFile(ArrayList todoLines) {
+  private static void writeFile(ArrayList todoLines) {
     try {
       Files.write(fileKeepTodos, todoLines);
     } catch (IOException f) {
