@@ -28,7 +28,7 @@ public class Tasks {
     this.priority = priority;
   }
 
-  public int getPriority() {
+  int getPriority() {
     return priority;
   }
 
@@ -52,7 +52,6 @@ public class Tasks {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd - HH:mm");
     return sdf.format(myDate);
   }
-
 
   @Override
   public String toString() {
