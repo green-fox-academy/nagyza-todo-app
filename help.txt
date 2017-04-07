@@ -1,0 +1,10 @@
+Command line arguments:
+ -l   Lists all the tasks
+ -a [<task>]  Adds a new task
+    [<task>] [<priority>] Adds a new task with priority number
+ -r [<index>]  Removes a task in the given index
+ -c [<index>]  Completes a task in the given index
+ -u [<index>]  Set undone a completed task in the given index
+ -s [<index>]  Switch a task to opposite in the given index
+ -all Completes all existing task
+ -help  Print this help to console
