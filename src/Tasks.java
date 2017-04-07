@@ -47,15 +47,16 @@ public class Tasks {
   void changeToBeUndone() {
     this.isDone = " ";
   }
+
   private String taskSetDate() {
     Date myDate = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd - HH:mm");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
     return sdf.format(myDate);
   }
 
   @Override
   public String toString() {
-    return "[" + isDone + "] " + " Priority: " + priority + "  " + date + "\t" + text;
+    return "[" + isDone + "] " + " Priority: " + priority + "  " + date + " - " + text;
   }
 
   String toFile() {
