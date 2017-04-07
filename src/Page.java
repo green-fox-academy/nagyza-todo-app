@@ -40,6 +40,12 @@ public class Page {
     this.tasks.get(index - 1).changeDone();
   }
 
+  void checkAllTask() {
+    for (Tasks task : this.tasks) {
+      task.changeToBeDone();
+    }
+  }
+
   ArrayList<String> toFile() {
     ArrayList<String> result = new ArrayList<>();
     for (Tasks task : this.tasks) {
