@@ -52,6 +52,28 @@ public class Main {
         page.checkTask(Integer.parseInt(args[1]));
         writeFile(page.toFile());
       }
+    } else if (args[0].equals("-u")) {
+      if (args.length < 2) {
+        System.out.println("Unable to remove: no index provided");
+      } else if (!isInteger(args[1])) {
+        System.out.println("Unable to remove: index is not a number");
+      } else if (tasksList.size() < Integer.parseInt(args[1])) {
+        System.out.println("Unable to remove: index is out of bound");
+      } else {
+        page.unCheckTask(Integer.parseInt(args[1]));
+        writeFile(page.toFile());
+      }
+    } else if (args[0].equals("-s")) {
+      if (args.length < 2) {
+        System.out.println("Unable to remove: no index provided");
+      } else if (!isInteger(args[1])) {
+        System.out.println("Unable to remove: index is not a number");
+      } else if (tasksList.size() < Integer.parseInt(args[1])) {
+        System.out.println("Unable to remove: index is out of bound");
+      } else {
+        page.changeTask(Integer.parseInt(args[1]));
+        writeFile(page.toFile());
+      }
     } else if (args.length > 0) {
       System.out.println("Unsupported argument");
       for (String lines : readFile(fileUsage)) {
