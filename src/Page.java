@@ -9,10 +9,6 @@ public class Page {
     this.tasks = new ArrayList<>();
   }
 
-  public Page(List<Tasks> tasks) {
-    this.tasks = tasks;
-  }
-
   void addTask(Tasks task) {
     this.tasks.add(task);
     this.sortTaskByPriority();
