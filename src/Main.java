@@ -74,6 +74,11 @@ public class Main {
         page.changeTask(Integer.parseInt(args[1]));
         writeFile(page.toFile());
       }
+    } else if (args[0].equals("-all") && readTasks.size() == 0) {
+      System.out.println("No todos to check today! :)");
+    } else if (args[0].equals("-all")) {
+      page.checkAllTask();
+      writeFile(page.toFile());
     } else if (args.length > 0) {
       System.out.println("Unsupported argument");
       for (String lines : readFile(fileUsage)) {
