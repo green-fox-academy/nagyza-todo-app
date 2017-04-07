@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Tasks {
   private String isDone;
@@ -8,8 +10,15 @@ public class Tasks {
   Tasks(String text) {
     this.isDone = " ";
     this.text = text;
-    this.date = "";
+    this.date = taskSetDate();
     this.priority = 2;
+  }
+
+  Tasks(String text, int priority) {
+    this.isDone = " ";
+    this.text = text;
+    this.date = taskSetDate();
+    this.priority = priority;
   }
 
   Tasks(String isDone, String text, String date, int priority) {
@@ -38,6 +47,12 @@ public class Tasks {
   void changeToBeUndone() {
     this.isDone = " ";
   }
+  private String taskSetDate() {
+    Date myDate = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd - HH:mm");
+    return sdf.format(myDate);
+  }
+
 
   @Override
   public String toString() {
@@ -47,5 +62,4 @@ public class Tasks {
   String toFile() {
     return isDone + ";" + text + ";" + date + ";" + priority;
   }
-
 }
