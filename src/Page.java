@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Page {
@@ -14,10 +15,21 @@ public class Page {
 
   void addTask(Tasks task) {
     this.tasks.add(task);
+    this.sortTaskByPriority();
   }
 
   void addNewTask(String newTask) {
     this.tasks.add(new Tasks(newTask));
+    this.sortTaskByPriority();
+  }
+
+  void addNewTaskPriority(String newTask, int priority) {
+    this.tasks.add(new Tasks(newTask, priority));
+    this.sortTaskByPriority();
+  }
+
+  private void sortTaskByPriority() {
+    Collections.sort(this.tasks, (o1, o2) -> Integer.valueOf(o1.getPriority()).compareTo(o2.getPriority()));
   }
 
   List<Tasks> getTasksList() {
