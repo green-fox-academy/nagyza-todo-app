@@ -27,8 +27,11 @@ public class Main {
       System.out.println(page.toString());
     } else if (args[0].equals("-a") && args.length < 2) {
       System.out.println("Unable to add: no task provided");
-    } else if (args[0].equals("-a")) {
+    } else if (args[0].equals("-a") && args.length < 3) {
       page.addNewTask(args[1]);
+      writeFile(page.toFile());
+    } else if (args[0].equals("-a")) {
+      page.addNewTaskPriority(args[1], Integer.parseInt(args[2]));
       writeFile(page.toFile());
     } else if (args[0].equals("-r")) {
       if (args.length < 2) {
@@ -110,7 +113,9 @@ public class Main {
       String[] lineElements = line.split(";");
       String done = lineElements[0];
       String text = lineElements[1];
-      page.addTask(new Tasks(done, text));
+      String date = lineElements[2];
+      int priority = Integer.parseInt(lineElements[3]);
+      page.addTask(new Tasks(done, text, date, priority));
     }
   }
   private static boolean isInteger(String input) {
