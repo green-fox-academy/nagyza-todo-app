@@ -59,7 +59,7 @@ public class Page {
     String result = "";
     int i = 0;
     for (Tasks task : this.tasks) {
-      result = result.concat(+ (i + 1) + " " + task.toString() + "\n");
+      result = result.concat((i + 1) + " - " + task.toString() + "\n");
       i++;
     }
     return result;
