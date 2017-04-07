@@ -8,7 +8,8 @@ import java.util.List;
 public class Main {
 
   private static final Path fileKeepTodos = Paths.get("todos.csv");
-  private static final Path fileUsage = Paths.get("print-usage.csv");
+  private static final Path fileUsage = Paths.get("print-usage.txt");
+  private static final Path fileHelp = Paths.get("help.txt");
   private static Page page;
 
   public static void main(String[] args) {
@@ -82,6 +83,10 @@ public class Main {
     } else if (args[0].equals("-all")) {
       page.checkAllTask();
       writeFile(page.toFile());
+    } else if (args[0].equals("-help")) {
+      for (String line : readFile(fileHelp)) {
+        System.out.println(line);
+      }
     } else if (args.length > 0) {
       System.out.println("Unsupported argument");
       for (String lines : readFile(fileUsage)) {
