@@ -32,6 +32,14 @@ public class Page {
     this.tasks.get(index - 1).changeToBeDone();
   }
 
+  void unCheckTask(int index) {
+    this.tasks.get(index - 1).changeToBeUndone();
+  }
+
+  void changeTask(int index) {
+    this.tasks.get(index - 1).changeDone();
+  }
+
   ArrayList<String> toFile() {
     ArrayList<String> result = new ArrayList<>();
     for (Tasks task : this.tasks) {
